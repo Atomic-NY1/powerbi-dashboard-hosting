@@ -46,9 +46,12 @@
       font-size: 16px;
       line-height: 1.5;
     }
+    .button-group {
+      margin-top: 20px;
+    }
     .download-link {
       display: inline-block;
-      margin-top: 20px;
+      margin-right: 10px;
       padding: 10px 20px;
       background-color: #4CAF50;
       color: white;
@@ -79,10 +82,14 @@
       </iframe>
     </div>
 
-    <a class="download-link" href="simulated_space_missions_dataset.csv" download>
-      📥 Download Dataset (CSV)
-    </a>
+    <div class="button-group">
+      <a class="download-link" href="simulated_space_missions_dataset.csv">
+        📄 View Dataset (CSV)
+      </a>
+      <a class="download-link" href="simulated_space_missions_dataset.csv" download>
+        💾 Download Dataset (CSV)
+      </a>
+    </div>
   </main>
 </body>
 </html>
-
