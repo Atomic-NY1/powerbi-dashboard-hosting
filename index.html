@@ -62,6 +62,18 @@
     .download-link:hover {
       background-color: #45a049;
     }
+    .preview-box {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #2d2d44;
+      border-radius: 8px;
+      border: 1px solid #555;
+      overflow-x: auto;
+      max-height: 300px;
+      white-space: pre;
+      font-family: monospace;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
@@ -90,7 +102,22 @@
         💾 Download Dataset (TXT)
       </a>
     </div>
+
+    <div class="preview-box">
+      MissionID,MissionName,Agency,LaunchSite,LaunchDate,PayloadMassKG,OrbitType,MissionSuccess
+      MSN00000,ISS Resupply,Roscosmos,Cape Canaveral,2001-04-21,7898.62,LEO,Success
+      MSN00001,Shenzhou,Blue Origin,Satish Dhawan,2013-02-08,4934.32,GTO,Success
+      MSN00002,SpaceX,NASA,Jiuquan,2007-06-16,7075.61,ISS,Success
+      MSN00003,ISS Resupply,Roscosmos,Guiana Space Centre,2005-01-11,4902.32,ISS,Success
+      MSN00004,Soyuz,Roscosmos,Jiuquan,2003-04-20,3233.89,ISS,Success
+      MSN00005,Apollo,CNSA,Baikonur,2006-12-02,4550.01,MEO,Partial
+      MSN00006,Gemini,ESA,Vandenberg,2010-08-19,6220.77,GTO,Success
+      MSN00007,Blue Origin,ISRO,Cape Canaveral,2004-07-05,3190.12,HEO,Failure
+      MSN00008,ISS Resupply,NASA,Satish Dhawan,2019-11-29,5011.84,ISS,Success
+      MSN00009,Soyuz,Roscosmos,Baikonur,2022-01-09,4821.57,Mars Transfer Orbit,Success
+    </div>
   </main>
 </body>
 </html>
+
 
