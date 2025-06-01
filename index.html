@@ -43,7 +43,9 @@
       text-decoration: none;
       color: #ddd;
       font-weight: 500;
+      transition: color 0.3s;
     }
+    nav ul li a.active,
     nav ul li a:hover {
       color: #00bcd4;
     }
@@ -170,6 +172,24 @@
       opacity: 1;
       transform: translateY(0);
     }
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      padding: 12px 16px;
+      background-color: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: none;
+      z-index: 1001;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+    #scrollTopBtn:hover {
+      background-color: #00acc1;
+    }
   </style>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
@@ -205,6 +225,35 @@
         }
       });
       input.focus();
+
+      // ScrollSpy for nav highlighting
+      const sections = document.querySelectorAll(".section, header");
+      const navLinks = document.querySelectorAll("nav ul li a");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          if (pageYOffset >= sectionTop) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
+        });
+
+        // Show scroll-to-top button
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        if (window.scrollY > window.innerHeight / 1.5) {
+          scrollTopBtn.style.display = "block";
+        } else {
+          scrollTopBtn.style.display = "none";
+        }
+      });
     });
   </script>
 </head>
@@ -240,7 +289,7 @@
       <li><a href="#top">Home</a></li>
       <li><a href="#dashboard">Dashboard</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
@@ -269,5 +318,7 @@
       </p>
     </section>
   </main>
+
+  <button id="scrollTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
 </body>
 </html>
