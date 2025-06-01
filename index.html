@@ -123,7 +123,7 @@
       btn.addEventListener('click', () => {
         if (input.value === correctPassword) {
           prompt.remove();
-          document.body.classList.add('visible');
+          document.body.style.visibility = 'visible';
         } else {
           alert("Incorrect password. Please try again.");
         }
@@ -131,7 +131,7 @@
     });
   </script>
 </head>
-<body>
+<body style="visibility:hidden;">
   <div id="password-prompt">
     <div>
       <h2>Access Restricted</h2>
@@ -144,7 +144,7 @@
 
   <header>
     <img src="dashboard-logo.png" alt="Dashboard Logo">
-    <h1>Welcome to Mark Volpe’s Power BI Dashboard</h1>
+    <h1>Welcome to the Power BI Dashboard</h1>
   </header>
   <main>
     <p>This space is dedicated to exploring Power BI dashboards and data visualization tools. The datasets used here are simulated for demonstration purposes. Feel free to view or download below.</p>
