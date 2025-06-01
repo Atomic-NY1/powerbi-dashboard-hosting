@@ -185,6 +185,18 @@
         if (input.value === correctPassword) {
           prompt.remove();
           document.body.classList.remove('gated');
+
+          const fadeIns = document.querySelectorAll('.fade-in');
+          const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.1 });
+
+          fadeIns.forEach(el => observer.observe(el));
         } else {
           alert("Incorrect password. Please try again.");
         }
@@ -197,17 +209,7 @@
       });
       input.focus();
     });
-    const fadeIns = document.querySelectorAll('.fade-in');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  fadeIns.forEach(el => observer.observe(el));
+    // fade-ins moved to unlock callback
 </script>
 </head>
 <body class="gated">
