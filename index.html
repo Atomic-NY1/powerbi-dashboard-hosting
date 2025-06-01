@@ -4,21 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mark Volpe – Power BI Dashboard</title>
+  <title>Power BI Dashboard</title>
   <style>
     body.gated {
-  overflow: hidden;
-}
-
+      overflow: hidden;
+    }
     body {
-  font-family: Arial, sans-serif;
-  background-color: #1e1e2f;
-  color: #f0f0f0;
-  margin: 0;
-  padding: 0;
-}
-    body.visible {
-}
+      font-family: Arial, sans-serif;
+      background-color: #1e1e2f;
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
     header {
       background-color: #2d2d44;
       padding: 20px;
@@ -41,8 +38,17 @@
       max-width: 1000px;
       margin: auto;
     }
+    section {
+      margin-bottom: 40px;
+    }
+    .section-title {
+      font-size: 22px;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #444;
+      padding-bottom: 5px;
+    }
     #powerbi-dashboard-container {
-      margin-top: 20px;
+      margin-top: 10px;
       border: 2px solid #444;
       border-radius: 8px;
       overflow: hidden;
@@ -69,7 +75,7 @@
       background-color: #45a049;
     }
     .preview-box {
-      margin-top: 30px;
+      margin-top: 20px;
       padding: 15px;
       background-color: #2d2d44;
       border-radius: 8px;
@@ -96,6 +102,7 @@
       border-radius: 8px;
       border: 1px solid #555;
       text-align: center;
+      width: 300px;
     }
     #password-prompt input[type="password"] {
       padding: 10px;
@@ -125,9 +132,15 @@
       btn.addEventListener('click', () => {
         if (input.value === correctPassword) {
           prompt.remove();
-          document.body.classList.remove('gated'); document.body.classList.add('visible');
+          document.body.classList.remove('gated');
         } else {
           alert("Incorrect password. Please try again.");
+        }
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          btn.click();
         }
       });
     });
@@ -149,41 +162,48 @@
     <h1>Welcome to the Power BI Dashboard</h1>
   </header>
   <main>
-    <p>This space is dedicated to exploring Power BI dashboards and data visualization tools. The datasets used here are simulated for demonstration purposes. Feel free to view or download below.</p>
+    <section>
+      <h2 class="section-title">Overview</h2>
+      <p>This space is dedicated to exploring Power BI dashboards and data visualization tools. The datasets used here are simulated for demonstration purposes.</p>
+    </section>
 
-    <div id="powerbi-dashboard-container">
-      <iframe title="Simulated Power BI Dashboard"
-              width="100%"
-              height="600"
-              src="https://app.powerbi.com/view?r=eyJrIjoiDUMMY"
-              frameborder="0"
-              allowFullScreen="true">
-      </iframe>
-    </div>
+    <section>
+      <h2 class="section-title">Dashboard Preview</h2>
+      <div id="powerbi-dashboard-container">
+        <iframe title="Simulated Power BI Dashboard"
+                width="100%"
+                height="600"
+                src="https://app.powerbi.com/view?r=eyJrIjoiDUMMY"
+                frameborder="0"
+                allowFullScreen="true">
+        </iframe>
+      </div>
+    </section>
 
-    <div class="button-group">
-      <a class="download-link" href="https://github.com/Atomic-NY1/powerbi-dashboard-hosting/blob/main/simulated_space_missions_dataset.txt" target="_blank">
-        📄 View Dataset (TXT)
-      </a>
-      <a class="download-link" href="simulated_space_missions_dataset.txt" download>
-        💾 Download Dataset (TXT)
-      </a>
-    </div>
-
-    <div class="preview-box">
-      MissionID,MissionName,Agency,LaunchSite,LaunchDate,PayloadMassKG,OrbitType,MissionSuccess
-      MSN00000,ISS Resupply,Roscosmos,Cape Canaveral,2001-04-21,7898.62,LEO,Success
-      MSN00001,Shenzhou,Blue Origin,Satish Dhawan,2013-02-08,4934.32,GTO,Success
-      MSN00002,SpaceX,NASA,Jiuquan,2007-06-16,7075.61,ISS,Success
-      MSN00003,ISS Resupply,Roscosmos,Guiana Space Centre,2005-01-11,4902.32,ISS,Success
-      MSN00004,Soyuz,Roscosmos,Jiuquan,2003-04-20,3233.89,ISS,Success
-      MSN00005,Apollo,CNSA,Baikonur,2006-12-02,4550.01,MEO,Partial
-      MSN00006,Gemini,ESA,Vandenberg,2010-08-19,6220.77,GTO,Success
-      MSN00007,Blue Origin,ISRO,Cape Canaveral,2004-07-05,3190.12,HEO,Failure
-      MSN00008,ISS Resupply,NASA,Satish Dhawan,2019-11-29,5011.84,ISS,Success
-      MSN00009,Soyuz,Roscosmos,Baikonur,2022-01-09,4821.57,Mars Transfer Orbit,Success
-    </div>
+    <section>
+      <h2 class="section-title">Dataset Access</h2>
+      <div class="button-group">
+        <a class="download-link" href="https://github.com/Atomic-NY1/powerbi-dashboard-hosting/blob/main/simulated_space_missions_dataset.txt" target="_blank">
+          📄 View Dataset (TXT)
+        </a>
+        <a class="download-link" href="simulated_space_missions_dataset.txt" download>
+          💾 Download Dataset (TXT)
+        </a>
+      </div>
+      <div class="preview-box">
+        MissionID,MissionName,Agency,LaunchSite,LaunchDate,PayloadMassKG,OrbitType,MissionSuccess
+        MSN00000,ISS Resupply,Roscosmos,Cape Canaveral,2001-04-21,7898.62,LEO,Success
+        MSN00001,Shenzhou,Blue Origin,Satish Dhawan,2013-02-08,4934.32,GTO,Success
+        MSN00002,SpaceX,NASA,Jiuquan,2007-06-16,7075.61,ISS,Success
+        MSN00003,ISS Resupply,Roscosmos,Guiana Space Centre,2005-01-11,4902.32,ISS,Success
+        MSN00004,Soyuz,Roscosmos,Jiuquan,2003-04-20,3233.89,ISS,Success
+        MSN00005,Apollo,CNSA,Baikonur,2006-12-02,4550.01,MEO,Partial
+        MSN00006,Gemini,ESA,Vandenberg,2010-08-19,6220.77,GTO,Success
+        MSN00007,Blue Origin,ISRO,Cape Canaveral,2004-07-05,3190.12,HEO,Failure
+        MSN00008,ISS Resupply,NASA,Satish Dhawan,2019-11-29,5011.84,ISS,Success
+        MSN00009,Soyuz,Roscosmos,Baikonur,2022-01-09,4821.57,Mars Transfer Orbit,Success
+      </div>
+    </section>
   </main>
 </body>
 </html>
-
