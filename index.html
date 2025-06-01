@@ -11,7 +11,9 @@
     }
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: radial-gradient(circle at top center, #0d1b2a, #000);
+      background: url('space-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
       color: #f0f0f0;
       margin: 0;
       padding: 0;
@@ -147,7 +149,17 @@
     #password-prompt button:hover {
       background-color: #00acc1;
     }
-  </style>
+    .blur-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: -1;
+  }
+</style>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const correctPassword = atob("c3BhY2UxMjM=");
@@ -174,6 +186,7 @@
   </script>
 </head>
 <body class="gated">
+  <div class="blur-overlay"></div>
   <div id="password-prompt">
     <div>
       <h2>Access Restricted</h2>
