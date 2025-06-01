@@ -11,8 +11,7 @@
     }
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: url('sun-loop.gif') repeat center center fixed;
-      background-size: 800px auto;
+      background: none;
       position: relative;
       color: #f0f0f0;
       margin: 0;
@@ -162,13 +161,11 @@
     html {
       scroll-behavior: smooth;
     }
-
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
-
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
@@ -212,6 +209,20 @@
   </script>
 </head>
 <body class="gated" id="top">
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="sun-background.mp4" type="video/mp4">
+  </video>
+  <style>
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100vw;
+      min-height: 100vh;
+      object-fit: cover;
+      z-index: -2;
+    }
+  </style>
   <div class="blur-overlay"></div>
   <div id="password-prompt">
     <div>
@@ -253,7 +264,7 @@
 
     <section class="section" id="about">
       <h2 class="fade-in" style="text-align:center; margin-top:3rem;">About This Project</h2>
-<p class="fade-in" style="text-align:center; font-size:1.1rem; color:#bbb; max-width:700px; margin: auto;">
+      <p class="fade-in" style="text-align:center; font-size:1.1rem; color:#bbb; max-width:700px; margin: auto;">
         This space is dedicated to exploring Power BI dashboards and data visualization tools. The datasets used here are simulated for demonstration purposes.
       </p>
     </section>
