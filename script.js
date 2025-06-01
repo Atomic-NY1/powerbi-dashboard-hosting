@@ -1,4 +1,3 @@
-// Password logic
 function checkPassword() {
   const input = document.getElementById('password-input');
   const prompt = document.getElementById('password-prompt');
@@ -13,22 +12,6 @@ function checkPassword() {
   }
 }
 
-// Scroll-to-top logic
-const scrollTopBtn = document.getElementById("scrollTopBtn");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > window.innerHeight * 0.5) {
-    scrollTopBtn.classList.add("show");
-  } else {
-    scrollTopBtn.classList.remove("show");
-  }
-});
-
-scrollTopBtn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-// Animation trigger
 function triggerFadeIn() {
   const fadeElements = document.querySelectorAll(".fade-in");
   const observer = new IntersectionObserver((entries, obs) => {
