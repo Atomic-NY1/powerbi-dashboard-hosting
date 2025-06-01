@@ -172,30 +172,37 @@
       opacity: 1;
       transform: translateY(0);
     }
-    #scrollTopBtn {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      padding: 12px 16px;
-      background-color: #00bcd4;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      cursor: pointer;
-      display: none;
-      z-index: 1001;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    #scrollTopBtn.show {
-      display: block;
-      opacity: 1;
-    }
-    #scrollTopBtn.hide {
-      opacity: 0;
-    }
+   #scrollTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 12px 16px;
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: scale(0.9);
+}
+
+#scrollTopBtn.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+#scrollTopBtn.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.9);
+}
+
   </style>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
