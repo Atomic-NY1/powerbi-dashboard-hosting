@@ -123,7 +123,7 @@
       btn.addEventListener('click', () => {
         if (input.value === correctPassword) {
           prompt.remove();
-          document.body.style.visibility = 'visible';
+          document.body.style.visibility = 'visible'; document.body.style.display = 'block';
         } else {
           alert("Incorrect password. Please try again.");
         }
@@ -131,7 +131,7 @@
     });
   </script>
 </head>
-<body style="visibility:hidden;">
+<body style="visibility:hidden; background-color:#1e1e2f;">
   <div id="password-prompt">
     <div>
       <h2>Access Restricted</h2>
@@ -184,3 +184,4 @@
   </main>
 </body>
 </html>
+
