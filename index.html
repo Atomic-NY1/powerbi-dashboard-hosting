@@ -10,116 +10,142 @@
       overflow: hidden;
     }
     body {
-      font-family: Arial, sans-serif;
-      background-color: #1e1e2f;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top center, #0d1b2a, #000);
       color: #f0f0f0;
       margin: 0;
       padding: 0;
     }
+    nav {
+      background-color: rgba(13, 27, 42, 0.9);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    nav h1 {
+      font-size: 1.5rem;
+      color: white;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #ddd;
+      font-weight: 500;
+    }
+    nav ul li a:hover {
+      color: #00bcd4;
+    }
     header {
-      background-color: #2d2d44;
-      padding: 20px;
       text-align: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+      padding: 4rem 2rem 2rem;
     }
-    header img {
-      height: 60px;
-      vertical-align: middle;
-      margin-right: 12px;
+    header h2 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
-    header h1 {
-      display: inline-block;
-      margin: 0;
-      font-size: 28px;
-      vertical-align: middle;
+    header p {
+      font-size: 1.2rem;
+      color: #aaa;
     }
-    main {
-      padding: 20px;
-      max-width: 1000px;
+    .section {
+      max-width: 960px;
       margin: auto;
+      padding: 2rem;
     }
-    section {
-      margin-bottom: 40px;
-    }
-    .section-title {
-      font-size: 22px;
-      margin-bottom: 10px;
-      border-bottom: 2px solid #444;
-      padding-bottom: 5px;
-    }
-    #powerbi-dashboard-container {
-      margin-top: 10px;
-      border: 2px solid #444;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-    }
-    p {
-      font-size: 16px;
-      line-height: 1.5;
+    .card {
+      background-color: #111c2e;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
     }
     .button-group {
-      margin-top: 20px;
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
     }
     .download-link {
-      display: inline-block;
-      margin-right: 10px;
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
       font-weight: bold;
+      padding: 12px 24px;
+      border: none;
+      text-decoration: none;
+      border-radius: 6px;
+      background: linear-gradient(90deg, #2c3e50, #4ca1af);
+      color: white;
+      font-size: 16px;
     }
     .download-link:hover {
-      background-color: #45a049;
+      background: linear-gradient(90deg, #4ca1af, #2c3e50);
     }
     .preview-box {
-      margin-top: 20px;
-      padding: 15px;
-      background-color: #2d2d44;
+      background: #0f2233;
+      padding: 1rem;
       border-radius: 8px;
-      border: 1px solid #555;
-      overflow-x: auto;
-      max-height: 300px;
-      white-space: pre;
       font-family: monospace;
-      font-size: 14px;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 1rem;
     }
     #password-prompt {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,1);
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #0d1b2a;
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 1000;
     }
     #password-prompt div {
-      background-color: #2d2d44;
-      padding: 20px;
-      border-radius: 8px;
-      border: 1px solid #555;
+      background-color: #1b2d42;
+      padding: 30px;
+      border-radius: 12px;
       text-align: center;
-      width: 300px;
+      border: 1px solid #334d66;
+      width: 320px;
     }
     #password-prompt input[type="password"] {
-      padding: 10px;
-      font-size: 16px;
-      border-radius: 5px;
-      border: 1px solid #444;
-      margin-bottom: 10px;
       width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #444;
+      font-size: 1rem;
+      margin-top: 10px;
     }
     #password-prompt button {
-      padding: 10px 20px;
-      background-color: #4CAF50;
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      background-color: #00bcd4;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       font-weight: bold;
+      font-size: 1rem;
       cursor: pointer;
+    }
+    #password-prompt button:hover {
+      background-color: #00acc1;
     }
   </style>
   <script>
@@ -143,6 +169,7 @@
           btn.click();
         }
       });
+      input.focus();
     });
   </script>
 </head>
@@ -157,52 +184,39 @@
     </div>
   </div>
 
+  <nav>
+    <h1>Power BI Dashboard</h1>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
   <header>
-    <img src="dashboard-logo.png" alt="Dashboard Logo">
-    <h1>Welcome to the Power BI Dashboard</h1>
+    <h2>Power BI Dashboard</h2>
+    <p>An example Power BI dashboard embedded in a website</p>
   </header>
-  <main>
-    <section>
-      <h2 class="section-title">Overview</h2>
-      <p>This space is dedicated to exploring Power BI dashboards and data visualization tools. The datasets used here are simulated for demonstration purposes.</p>
-    </section>
 
-    <section>
-      <h2 class="section-title">Dashboard Preview</h2>
-      <div id="powerbi-dashboard-container">
-        <iframe title="Simulated Power BI Dashboard"
-                width="100%"
-                height="600"
-                src="https://app.powerbi.com/view?r=eyJrIjoiDUMMY"
-                frameborder="0"
-                allowFullScreen="true">
-        </iframe>
-      </div>
-    </section>
+  <main class="section">
+    <div class="card">
+      <iframe title="Simulated Power BI Dashboard"
+              src="https://app.powerbi.com/view?r=eyJrIjoiDUMMY"
+              allowFullScreen>
+      </iframe>
 
-    <section>
-      <h2 class="section-title">Dataset Access</h2>
       <div class="button-group">
-        <a class="download-link" href="https://github.com/Atomic-NY1/powerbi-dashboard-hosting/blob/main/simulated_space_missions_dataset.txt" target="_blank">
-          📄 View Dataset (TXT)
-        </a>
-        <a class="download-link" href="simulated_space_missions_dataset.txt" download>
-          💾 Download Dataset (TXT)
-        </a>
+        <a class="download-link" href="https://github.com/Atomic-NY1/powerbi-dashboard-hosting/blob/main/simulated_space_missions_dataset.txt" target="_blank">📄 View Dataset</a>
+        <a class="download-link" href="simulated_space_missions_dataset.txt" download>💾 Download Dataset</a>
       </div>
-      <div class="preview-box">
-        MissionID,MissionName,Agency,LaunchSite,LaunchDate,PayloadMassKG,OrbitType,MissionSuccess
-        MSN00000,ISS Resupply,Roscosmos,Cape Canaveral,2001-04-21,7898.62,LEO,Success
-        MSN00001,Shenzhou,Blue Origin,Satish Dhawan,2013-02-08,4934.32,GTO,Success
-        MSN00002,SpaceX,NASA,Jiuquan,2007-06-16,7075.61,ISS,Success
-        MSN00003,ISS Resupply,Roscosmos,Guiana Space Centre,2005-01-11,4902.32,ISS,Success
-        MSN00004,Soyuz,Roscosmos,Jiuquan,2003-04-20,3233.89,ISS,Success
-        MSN00005,Apollo,CNSA,Baikonur,2006-12-02,4550.01,MEO,Partial
-        MSN00006,Gemini,ESA,Vandenberg,2010-08-19,6220.77,GTO,Success
-        MSN00007,Blue Origin,ISRO,Cape Canaveral,2004-07-05,3190.12,HEO,Failure
-        MSN00008,ISS Resupply,NASA,Satish Dhawan,2019-11-29,5011.84,ISS,Success
-        MSN00009,Soyuz,Roscosmos,Baikonur,2022-01-09,4821.57,Mars Transfer Orbit,Success
-      </div>
+    </div>
+
+    <section class="section">
+      <h2 style="text-align:center; margin-top:3rem;">About This Project</h2>
+      <p style="text-align:center; font-size:1.1rem; color:#bbb; max-width:700px; margin: auto;">
+        This space is dedicated to exploring Power BI dashboards and data visualization tools. The datasets used here are simulated for demonstration purposes.
+      </p>
     </section>
   </main>
 </body>
