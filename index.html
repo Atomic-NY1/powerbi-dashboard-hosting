@@ -159,6 +159,20 @@
     backdrop-filter: blur(4px);
     z-index: -1;
   }
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 </style>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
@@ -183,7 +197,18 @@
       });
       input.focus();
     });
-  </script>
+    const fadeIns = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  fadeIns.forEach(el => observer.observe(el));
+</script>
 </head>
 <body class="gated">
   <div class="blur-overlay"></div>
@@ -207,12 +232,12 @@
     </ul>
   </nav>
 
-  <header>
+  <header class="fade-in">
     <h2>Power BI Dashboard</h2>
     <p>An example Power BI dashboard embedded in a website</p>
   </header>
 
-  <main class="section">
+  <main class="section fade-in">
     <div class="card">
       <iframe title="Simulated Power BI Dashboard"
               src="https://app.powerbi.com/view?r=eyJrIjoiDUMMY"
@@ -225,7 +250,7 @@
       </div>
     </div>
 
-    <section class="section">
+    <section class="section fade-in">
       <h2 style="text-align:center; margin-top:3rem;">About This Project</h2>
       <p style="text-align:center; font-size:1.1rem; color:#bbb; max-width:700px; margin: auto;">
         This space is dedicated to exploring Power BI dashboards and data visualization tools. The datasets used here are simulated for demonstration purposes.
@@ -234,4 +259,3 @@
   </main>
 </body>
 </html>
-
