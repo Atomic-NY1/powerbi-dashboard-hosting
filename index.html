@@ -6,200 +6,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Power BI Dashboard</title>
   <link rel="stylesheet" href="style.css?v=1.0">
-  <script defer src="script.js?v=1.0"></script>
-  <style>
-    body.gated {
-      overflow: hidden;
-    }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: none;
-      position: relative;
-      color: #f0f0f0;
-      margin: 0;
-      padding: 0;
-    }
-    nav {
-      background-color: rgba(13, 27, 42, 0.9);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    nav h1 {
-      font-size: 1.5rem;
-      color: white;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-    nav ul li {
-      display: inline;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #ddd;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    nav ul li a.active,
-    nav ul li a:hover {
-      color: #00bcd4;
-    }
-    header {
-      text-align: center;
-      padding: 4rem 2rem 2rem;
-    }
-    header h2 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    header p {
-      font-size: 1.2rem;
-      color: #aaa;
-    }
-    .section {
-      max-width: 960px;
-      margin: auto;
-      padding: 2rem;
-    }
-    .card {
-      background-color: #111c2e;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-    }
-    .button-group {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .download-link {
-      font-weight: bold;
-      padding: 12px 24px;
-      border: none;
-      text-decoration: none;
-      border-radius: 6px;
-      background: linear-gradient(90deg, #2c3e50, #4ca1af);
-      color: white;
-      font-size: 16px;
-    }
-    .download-link:hover {
-      background: linear-gradient(90deg, #4ca1af, #2c3e50);
-    }
-    .preview-box {
-      background: #0f2233;
-      padding: 1rem;
-      border-radius: 8px;
-      font-family: monospace;
-      font-size: 0.9rem;
-      overflow-x: auto;
-      margin-top: 1rem;
-    }
-    iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-      border-radius: 8px;
-      margin-top: 1rem;
-    }
-    #password-prompt {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: #0d1b2a;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    #password-prompt div {
-      background-color: #1b2d42;
-      padding: 30px;
-      border-radius: 12px;
-      text-align: center;
-      border: 1px solid #334d66;
-      width: 320px;
-    }
-    #password-prompt input[type="password"] {
-      width: 100%;
-      padding: 12px;
-      border-radius: 6px;
-      border: 1px solid #444;
-      font-size: 1rem;
-      margin-top: 10px;
-    }
-    #password-prompt button {
-      margin-top: 15px;
-      width: 100%;
-      padding: 12px;
-      background-color: #00bcd4;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    #password-prompt button:hover {
-      background-color: #00acc1;
-    }
-    .blur-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(4px);
-      z-index: -1;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    #scrollTopBtn {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      padding: 12px 16px;
-      background-color: #00bcd4;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      font-size: 1.2rem;
-      cursor: pointer;
-      z-index: 1001;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      transform: scale(0.9);
-    }
-    #scrollTopBtn.show {
-      opacity: 1;
-      pointer-events: auto;
-      transform: scale(1);
-    }
-    #scrollTopBtn.hide {
-      opacity: 0;
-      pointer-events: none;
-      transform: scale(0.9);
-    }
-  </style>
+  <script defer src="script.js?v=1.1"></script>
+</head>
+<body>
+  <div id="password-prompt">
+    <div>
+      <h2>Enter Password</h2>
+      <input type="password" id="password-input" placeholder="Password" autofocus>
+      <button onclick="checkPassword()">Submit</button>
+    </div>
+  </div>
+
+  <nav>
+    <h1>Power BI Demo</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#dashboard">Dashboard</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h2>Interactive Power BI Dashboard</h2>
+    <p>Dive into live insights visualized through Microsoft Power BI.</p>
+  </header>
+
+  <section id="about" class="section fade-in">
+    <div class="card">
+      <h3>About This Project</h3>
+      <p>This is a personal project to experiment with hosting Power BI dashboards using GitHub Pages and embedding techniques. This site uses a simple password gate, CSS animations, and responsive design for display on desktop or mobile. Hosted at: <code>atomic-ny1.github.io</code></p>
+    </div>
+  </section>
+
+  <section id="dashboard" class="section fade-in">
+    <div class="card">
+      <h3>Live Dashboard</h3>
+      <iframe src="https://app.powerbi.com/view?r=YOUR_REPORT_LINK_HERE" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <button id="scrollTopBtn" title="Back to Top">↑</button>
+</body>
+</html>
