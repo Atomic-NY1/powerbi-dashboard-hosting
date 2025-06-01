@@ -186,9 +186,15 @@
       display: none;
       z-index: 1001;
       box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
-    #scrollTopBtn:hover {
-      background-color: #00acc1;
+    #scrollTopBtn.show {
+      display: block;
+      opacity: 1;
+    }
+    #scrollTopBtn.hide {
+      opacity: 0;
     }
   </style>
   <script>
@@ -225,33 +231,34 @@
         }
       });
       input.focus();
+    });
 
+    // ScrollSpy & Scroll-to-Top logic
+    window.addEventListener("scroll", () => {
       const sections = document.querySelectorAll(".section, header");
       const navLinks = document.querySelectorAll("nav ul li a");
-
-      window.addEventListener("scroll", () => {
-        let current = "";
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop - 100;
-          if (pageYOffset >= sectionTop) {
-            current = section.getAttribute("id");
-          }
-        });
-
-        navLinks.forEach(link => {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === `#${current}`) {
-            link.classList.add("active");
-          }
-        });
-
-        const scrollTopBtn = document.getElementById("scrollTopBtn");
-        if (window.scrollY > window.innerHeight / 1.5) {
-          scrollTopBtn.style.display = "block";
-        } else {
-          scrollTopBtn.style.display = "none";
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
         }
       });
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+      if (window.scrollY > window.innerHeight / 1.5) {
+        scrollTopBtn.classList.add("show");
+        scrollTopBtn.classList.remove("hide");
+      } else {
+        scrollTopBtn.classList.remove("show");
+        scrollTopBtn.classList.add("hide");
+      }
     });
   </script>
 </head>
@@ -284,14 +291,14 @@
   <nav>
     <h1>Power BI Dashboard</h1>
     <ul>
-      <li><a href="#home">Home</a></li>
+      <li><a href="#top">Home</a></li>
       <li><a href="#dashboard">Dashboard</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <header id="home">
+  <header>
     <h2 class="fade-in">Power BI Dashboard</h2>
     <p class="fade-in">An example Power BI dashboard embedded in a website</p>
   </header>
