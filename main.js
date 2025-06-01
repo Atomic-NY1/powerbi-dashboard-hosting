@@ -25,3 +25,11 @@ function triggerFadeIn() {
 
   fadeElements.forEach(el => observer.observe(el));
 }
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('password-input');
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      checkPassword();
+    }
+  });
+});
