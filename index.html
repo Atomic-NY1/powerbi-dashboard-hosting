@@ -11,7 +11,7 @@
     }
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: url('space-bg.jpg') no-repeat center center fixed;
+      background: url('sun-loop.gif') no-repeat center center fixed;
       background-size: cover;
       position: relative;
       color: #f0f0f0;
@@ -150,30 +150,30 @@
       background-color: #00acc1;
     }
     .blur-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
-    z-index: -1;
-  }
-  html {
-    scroll-behavior: smooth;
-  }
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: -1;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
 
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const correctPassword = atob("c3BhY2UxMjM=");
@@ -209,10 +209,9 @@
       });
       input.focus();
     });
-    // fade-ins moved to unlock callback
-</script>
+  </script>
 </head>
-<body class="gated">
+<body class="gated" id="top">
   <div class="blur-overlay"></div>
   <div id="password-prompt">
     <div>
@@ -227,9 +226,9 @@
   <nav>
     <h1>Power BI Dashboard</h1>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Dashboard</a></li>
-      <li><a href="#">About</a></li>
+      <li><a href="#top">Home</a></li>
+      <li><a href="#dashboard">Dashboard</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
   </nav>
@@ -239,7 +238,7 @@
     <p class="fade-in">An example Power BI dashboard embedded in a website</p>
   </header>
 
-  <main class="section">
+  <main class="section" id="dashboard">
     <div class="card fade-in">
       <iframe title="Simulated Power BI Dashboard"
               src="https://app.powerbi.com/view?r=eyJrIjoiDUMMY"
@@ -252,7 +251,7 @@
       </div>
     </div>
 
-    <section class="section">
+    <section class="section" id="about">
       <h2 class="fade-in" style="text-align:center; margin-top:3rem;">About This Project</h2>
 <p class="fade-in" style="text-align:center; font-size:1.1rem; color:#bbb; max-width:700px; margin: auto;">
         This space is dedicated to exploring Power BI dashboards and data visualization tools. The datasets used here are simulated for demonstration purposes.
