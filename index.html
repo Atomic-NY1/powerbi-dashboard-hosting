@@ -226,7 +226,6 @@
       });
       input.focus();
 
-      // ScrollSpy for nav highlighting
       const sections = document.querySelectorAll(".section, header");
       const navLinks = document.querySelectorAll("nav ul li a");
 
@@ -246,7 +245,6 @@
           }
         });
 
-        // Show scroll-to-top button
         const scrollTopBtn = document.getElementById("scrollTopBtn");
         if (window.scrollY > window.innerHeight / 1.5) {
           scrollTopBtn.style.display = "block";
@@ -286,14 +284,14 @@
   <nav>
     <h1>Power BI Dashboard</h1>
     <ul>
-      <li><a href="#top">Home</a></li>
+      <li><a href="#home">Home</a></li>
       <li><a href="#dashboard">Dashboard</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <header>
+  <header id="home">
     <h2 class="fade-in">Power BI Dashboard</h2>
     <p class="fade-in">An example Power BI dashboard embedded in a website</p>
   </header>
