@@ -190,13 +190,11 @@
       transition: opacity 0.3s ease, transform 0.3s ease;
       transform: scale(0.9);
     }
-
     #scrollTopBtn.show {
       opacity: 1;
       pointer-events: auto;
       transform: scale(1);
     }
-
     #scrollTopBtn.hide {
       opacity: 0;
       pointer-events: none;
@@ -239,7 +237,6 @@
       input.focus();
     });
 
-    // ScrollSpy & Scroll-to-Top logic
     window.addEventListener("scroll", () => {
       const sections = document.querySelectorAll(".section, header");
       const navLinks = document.querySelectorAll("nav ul li a");
@@ -326,13 +323,6 @@
       <h2 class="fade-in" style="text-align:center; margin-top:3rem;">About This Project</h2>
       <p class="fade-in" style="text-align:center; font-size:1.1rem; color:#bbb; max-width:700px; margin: auto;">
         This space is dedicated to exploring Power BI dashboards and data visualization tools. The datasets used here are simulated for demonstration purposes.
-      </p>
-    </section>
-
-    <section class="section" id="contact">
-      <h2 class="fade-in" style="text-align:center; margin-top:3rem;">Contact</h2>
-      <p class="fade-in" style="text-align:center; font-size:1.1rem; color:#bbb; max-width:700px; margin: auto;">
-        Questions? Feedback? Connect with me on GitHub or send a message through the contact form (coming soon).
       </p>
     </section>
   </main>
