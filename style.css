@@ -12,6 +12,21 @@ body {
   overflow-x: hidden;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4em;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.logo-text {
+  font-family: 'Segoe UI', sans-serif;
+  text-shadow: 0 0 2px #000;
+}
+
 #bg-video {
   position: fixed;
   top: 0;
