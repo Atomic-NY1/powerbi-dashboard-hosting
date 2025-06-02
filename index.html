@@ -5,14 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Power BI Dashboard</title>
-  <link rel="stylesheet" href="style.css?v=1.4">
-  <script defer src="main.js?v=1.5"></script>
+  <link rel="stylesheet" href="style.css?v=1.6">
+  <script defer src="main.js?v=1.4"></script>
 </head>
-<body>
-  <video autoplay muted loop id="bg-video">
-  <source src="sun-background.mp4" type="video/mp4">
-  Your browser does not support HTML5 video.
-</video>
+<body class="gated">
   <div id="password-prompt">
     <div>
       <h2>Enter Password</h2>
@@ -31,20 +27,17 @@
 
   <header>
     <h2>Interactive Power BI Dashboard</h2>
-
-     <!-- This blank line will work -->
-    
     <p>Dive into live insights visualized through Microsoft Power BI.</p>
   </header>
 
-  <section id="about" class="section fade-in">
+  <section id="about" class="fade-in">
     <div class="card">
       <h3>About This Project</h3>
       <p>This is a personal project to experiment with hosting Power BI dashboards using GitHub Pages and embedding techniques. This site uses a simple password gate, CSS animations, and responsive design for display on desktop or mobile. Hosted at: <code>atomic-ny1.github.io</code></p>
     </div>
   </section>
 
-  <section id="dashboard" class="section fade-in">
+  <section id="dashboard" class="fade-in">
     <div class="card">
       <h3>Live Dashboard</h3>
       <iframe src="https://app.powerbi.com/view?r=YOUR_REPORT_LINK_HERE" allowfullscreen></iframe>
