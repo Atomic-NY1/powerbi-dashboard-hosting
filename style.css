@@ -71,6 +71,11 @@ nav ul li a {
   font-weight: 500;
 }
 
+nav ul li a.active {
+  border-bottom: 2px solid #fff;
+  color: #f0f0f0;
+}
+
 nav ul li a:hover {
   color: #00bcd4;
 }
