@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Power BI Dashboard</title>
-  <link rel="stylesheet" href="style.css?v=1.6">
+  <link rel="stylesheet" href="style.css?v=1.7">
   <script defer src="main.js?v=1.4"></script>
 </head>
 <body class="gated">
@@ -18,7 +18,9 @@
   </div>
 
   <nav>
-    <h1>Power BI Demo</h1>
+    <a href="/" class="logo">
+      <img src="dataphox-logo.svg" alt="DataPhox Logo" height="40">
+    </a>
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#dashboard">Dashboard</a></li>
@@ -45,5 +47,35 @@
   </section>
 
   <button id="scrollTopBtn" title="Back to Top">↑</button>
+
+  <script>
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.addEventListener("scroll", () => {
+      scrollBtn.style.display = window.scrollY > window.innerHeight ? "block" : "none";
+    });
+    scrollBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    const links = document.querySelectorAll("nav ul li a");
+    const sections = document.querySelectorAll("section");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 60) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      links.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").includes(current)) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
 </body>
 </html>
