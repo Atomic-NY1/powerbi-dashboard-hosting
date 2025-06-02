@@ -109,18 +109,17 @@ iframe {
 
 #scrollTopBtn {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  padding: 12px 16px;
-  background-color: #00bcd4;
+  bottom: 20px;
+  right: 20px;
+  background: #444;
   color: white;
   border: none;
   border-radius: 50%;
-  font-size: 1.2rem;
+  font-size: 1.2em;
+  padding: 10px 15px;
   cursor: pointer;
-  z-index: 1000;
   display: none;
-  transition: opacity 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 #scrollTopBtn.show {
