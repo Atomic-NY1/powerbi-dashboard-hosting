@@ -1,33 +1,25 @@
-<!-- Power BI Dashboard Hosting Project -->
+<!-- FINAL VERSION: index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Power BI Dashboard</title>
-  <link rel="stylesheet" href="style.css?v=1.8" />
-  <script defer src="main.js?v=1.4"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DataPhox Dashboard</title>
+  <link rel="stylesheet" href="style.css?v=2.0">
+  <script defer src="main.js?v=2.0"></script>
 </head>
 <body class="gated">
-
-  <!-- Password Prompt -->
   <div id="password-prompt">
     <div>
       <h2>Enter Password</h2>
-      <input type="password" id="password-input" placeholder="Password" autofocus />
+      <input type="password" id="password-input" placeholder="Password" autofocus>
       <button onclick="checkPassword()">Submit</button>
     </div>
   </div>
 
-  <!-- Background Video -->
-  <video id="bg-video" autoplay muted loop>
-    <source src="sun-background.mp4" type="video/mp4" />
-  </video>
-
-  <!-- Navbar -->
   <nav>
-    <a href="/" class="logo">
-      <img src="dataphox-logo.svg" alt="DataPhox Logo" height="40" />
+    <a href="#" class="logo">
+      <img src="dataphox-logo.svg" alt="DataPhox Logo" height="36">
       <span class="logo-text">DataPhox</span>
     </a>
     <ul>
@@ -36,64 +28,25 @@
     </ul>
   </nav>
 
-  <!-- Header -->
   <header>
     <h2>Interactive Power BI Dashboard</h2>
     <p>Dive into live insights visualized through Microsoft Power BI.</p>
   </header>
 
-  <!-- About Section -->
   <section id="about" class="fade-in">
     <div class="card">
       <h3>About This Project</h3>
-      <p>
-        This is a personal project to experiment with hosting Power BI dashboards using GitHub Pages and embedding techniques.
-        This site uses a simple password gate, CSS animations, and responsive design for display on desktop or mobile.
-        Hosted at: <code>atomic-ny1.github.io</code>
-      </p>
+      <p>This is a personal project to experiment with hosting Power BI dashboards using GitHub Pages and embedding techniques. This site uses a simple password gate, CSS animations, and responsive design for desktop or mobile display.</p>
     </div>
   </section>
 
-  <!-- Dashboard Section -->
   <section id="dashboard" class="fade-in">
     <div class="card">
       <h3>Live Dashboard</h3>
-      <iframe src="https://app.powerbi.com/view?r=YOUR_REAL_REPORT_LINK_HERE" allowfullscreen></iframe>
+      <iframe src="https://app.powerbi.com/view?r=YOUR_REPORT_LINK_HERE" allowfullscreen></iframe>
     </div>
   </section>
 
-  <!-- Scroll Button -->
-  <button id="scrollTopBtn" title="Back to Top">↑</button>
-
-  <!-- Scroll & Highlight Script -->
-  <script>
-    const scrollBtn = document.getElementById("scrollTopBtn");
-    window.addEventListener("scroll", () => {
-      scrollBtn.style.display = window.scrollY > window.innerHeight ? "block" : "none";
-    });
-    scrollBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-
-    const links = document.querySelectorAll("nav ul li a");
-    const sections = document.querySelectorAll("section");
-
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 60) {
-          current = section.getAttribute("id");
-        }
-      });
-
-      links.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href").includes(current)) {
-          link.classList.add("active");
-        }
-      });
-    });
-  </script>
+  <button id="scrollTopBtn" title="Back to Top">&#8593;</button>
 </body>
 </html>
