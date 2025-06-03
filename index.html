@@ -10,8 +10,9 @@
 </head>
 <body class="gated">
   <video id="bg-video" autoplay muted loop playsinline>
-  <source src="sun-background.mp4" type="video/mp4">
-</video>
+    <source src="sun-background.mp4" type="video/mp4">
+  </video>
+
   <div id="password-prompt">
     <div>
       <h2>Enter Password</h2>
@@ -36,14 +37,14 @@
     <p>Dive into live insights visualized through Microsoft Power BI.</p>
   </header>
 
-  <section id="about" class="fade-in">
+  <section id="about" class="fade-in" style="max-width: 960px; margin: 0 auto;">
     <div class="card">
       <h3>About This Project</h3>
       <p>This is a personal project to experiment with hosting Power BI dashboards using GitHub Pages and embedding techniques. This site uses a simple password gate, CSS animations, and responsive design for desktop or mobile display.</p>
     </div>
   </section>
 
-  <section id="dashboard" class="fade-in">
+  <section id="dashboard" class="fade-in" style="max-width: 960px; margin: 0 auto;">
     <div class="card">
       <h3>Live Dashboard</h3>
       <iframe src="https://app.powerbi.com/view?r=YOUR_REPORT_LINK_HERE" allowfullscreen></iframe>
