@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>DataPhox — Site Offline</title>
+  <style>
+    :root { --bg:#0f1115; --fg:#e6e6e6; --muted:#9aa0a6; }
+    html,body { height:100%; margin:0; }
+    body {
+      display:flex; align-items:center; justify-content:center; flex-direction:column;
+      background:var(--bg); color:var(--fg); font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      padding:24px; text-align:center;
+    }
+    h1 { font-size:clamp(28px,4vw,40px); margin:0 0 8px; letter-spacing:.2px; }
+    p { color:var(--muted); margin:0 0 16px; }
+    .badge { padding:8px 12px; border:1px solid #2a2f3a; border-radius:999px; font-size:12px; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="badge">DataPhox.com</div>
+  <h1>Site Offline</h1>
+  <p>We’ll be back soon.</p>
+</body>
+</html>
